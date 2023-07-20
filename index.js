@@ -7,7 +7,7 @@ const port = 3000;
 // Middleware to parse JSON requests
 app.use(express.json());
 
-app.get('/api/search', async (req, res) => {
+app.get('/', async (req, res) => {
   const query = req.query.q;
 
   if (!query) {
