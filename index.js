@@ -7,11 +7,12 @@ const port = 3000;
 // Middleware to parse JSON requests
 app.use(express.json());
 
-app.get('/', async (req, res) => {
-  const query = req.query.q;
+// Modified API endpoint with path parameter
+app.get('/search/:query', async (req, res) => {
+  const query = req.params.query;
 
   if (!query) {
-    return res.status(400).json({ error: 'Missing query parameter (q).' });
+    return res.status(400).json({ error: 'Missing query parameter.' });
   }
 
   try {
